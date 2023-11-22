@@ -1,6 +1,6 @@
 # DocGPT (A Decoder-Only Implementation of GPT's Architecture)
 
-This project is an implementation of the GPT (Generative Pre-trained Transformer) architecture. The model is specifically designed as a decoder-only variant. It has been trained on a dataset comprised of physiology books. This project is an understanding of Andrej Karpathy's Neural Network series.
+This project implements the GPT2 (Generative Pre-trained Transformer) architecture. The model is specifically designed as a decoder-only variant. It has been trained on a dataset comprised of physiology books. This project is an understanding of Andrej Karpathy's Neural Network series.
 
 ## Project Overview
 
@@ -20,12 +20,13 @@ The layer ordering within this architecture is inspired by the "Attention Is All
 
 ### Training Metrics
 
-[Training Metrics Image]
-![Training Metrics](images/metrics.png)
+<img width="392" alt="metrics" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/36d3403f-c8eb-4ad7-9a9f-5f2be20fca39">
+
 Final Results: train loss 1.1304, val loss 1.4530
 
-[Output Image]
-![Training Metrics](images/output.png)
+### Generations Output
+
+<img width="598" alt="sample" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/f65f29d0-9072-43ba-9f37-5bf79561c99d">
 
 ## Note on Generations
 
