@@ -20,7 +20,7 @@ The layer ordering within this architecture is inspired by the "Attention Is All
 
 ### Training Metrics
 
-<img width="392" alt="metrics" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/36d3403f-c8eb-4ad7-9a9f-5f2be20fca39">
+<img width="392" alt="Screenshot 2023-11-22 at 23 22 26" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/76b7b209-02d2-47ac-b790-056621ef8317">
 
 Final Results: train loss 1.1304, val loss 1.4530
 
