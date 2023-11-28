@@ -1,4 +1,4 @@
-# DocGPT (A Decoder-Only Implementation of GPT's Architecture)
+# DoctorGPT (A Decoder-Only Implementation of GPT's Architecture)
 
 This project implements the GPT2 (Generative Pre-trained Transformer) architecture. The model is specifically designed as a decoder-only variant. It has been trained on a dataset comprised of physiology books(approx 11M tokens). This project is an understanding of Andrej Karpathy's Neural Network series.
 
