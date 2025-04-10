@@ -1,33 +1,67 @@
-# DoctorGPT (A Decoder-Only Implementation of GPT's Architecture)
+# Doctor GPT 🧠💬
+A domain-specific language model prototype for clinical text generation, built as a fine-tunable extension of GPT-2. The project explores how transformer-based architectures can be adapted to medical contexts through preprocessing, tokenization, and scalable training methods.
 
-This project implements the GPT2 (Generative Pre-trained Transformer) architecture. The model is specifically designed as a decoder-only variant. It has been trained on a dataset comprised of physiology books(approx 11M tokens). This project is an understanding of Andrej Karpathy's Neural Network series.
+## 🚀 What This Is
 
-## Project Overview
+Doctor GPT is an experimental framework to build and eventually fine-tune a transformer model specifically for generating clinical or medically relevant text. Inspired by the success of GPT-2 and medical LLM applications, this project focuses on pre-fine-tuning infrastructure and model preparation.
 
-The project consists of two primary parts:
+Currently, this is a **pre-fine-tuning implementation** intended to test:
+- Domain-adapted tokenization
+- Training architecture optimizations
+- Model scaling approaches for large corpora
 
-### 1. Bigram Model
+## 🔍 Why I'm Doing This
 
-This section aims to introduce the basic implementation of the Bigram probabilistic model. It serves as a fundamental step to understanding attention mechanisms.
+As a Master's student in Data Science at NYU with a focus on Neural Statistics, I'm deeply interested in how LLMs can be applied to real-world challenges in healthcare. Doctor GPT is my way of diving into:
+- How generative AI could support medical professionals
+- What it takes to build task-adapted transformer systems
+- How to stabilize and scale training efficiently
 
-### 2. DocGPT Notebook
+## 🏗️ How It’s Built
 
-The notebook named "DocGPT" forms the core of the project. Initially, the dataset comprised approximately 10 million characters extracted from physiology books. The data has undergone preprocessing, and an architecture encompassing liner layer, softmax, multi-head attention, feed-forward layers, residual connections, and dropout has been developed.
+### Model Base
+- GPT-2 architecture (124M parameters)
+- Framework: PyTorch + HuggingFace Transformers
 
-The layer ordering within this architecture is inspired by the "Attention Is All You Need" paper, defining the Transformer architecture. This implementation focuses solely on a decoder-based language model to simplify the complexity of implementation.
+### Key Upgrades and Innovations
+- **Custom Tokenizer**: Byte Pair Encoding (BPE) on medical corpora
+- **Subword Vocabulary**: Trained using domain-specific text (PubMed abstracts, medical notes)
+- **Training Optimizations**:
+  - Multi-GPU distributed training
+  - Mixed precision (FP16) via `torch.cuda.amp`
+  - Gradient checkpointing + accumulation
+  - Cosine annealing LR scheduler with warm-up
+  - AdamW optimizer with weight decay
+- **Stability Improvements**:
+  - Dropout layers
+  - Layer normalization
+  - Gradient clipping
 
-## Training Metrics and Results
+> 💡 Note: This version is not yet fine-tuned on medical-specific downstream tasks. The current focus is on architectural readiness and token-level language modeling.
 
-### Training Metrics
+## 🧪 Sample Input/Output
 
-<img width="392" alt="Screenshot 2023-11-22 at 23 22 26" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/76b7b209-02d2-47ac-b790-056621ef8317">
+> **Input Prompt:**  
+*“The patient presented symptoms of acute myocardial infarction and was administered...”*
 
-Final Results: train loss 1.1304, val loss 1.4530
+> **Raw Model Output:**  
+*“...aspirin and nitroglycerin before transfer to the emergency cardiac unit. Troponin levels were monitored along with ECG signals to assess ischemic risk.”*
 
-### Generations Output
+> **(Note: Output is illustrative and generated from preliminary runs—not medically validated.)**
 
-<img width="598" alt="sample" src="https://github.com/JeethuSrini/Doctor-GPT/assets/85613102/f65f29d0-9072-43ba-9f37-5bf79561c99d">
+## 🧭 What’s Next
 
-## Note on Generations
+- Fine-tune on curated clinical datasets (e.g., MIMIC-III, PubMed QA)
+- Evaluate output coherence and factual consistency
+- Explore prompt-engineered applications for mental health support systems
+- Integrate with downstream tools (e.g., chatbot interfaces, decision support)
 
-It's important to note that the generations produced by the model are currently random. The model has not undergone fine-tuning specifically for question-answering tasks.
+---
+
+## 🤝 Acknowledgments
+
+Built using HuggingFace Transformers, PyTorch Lightning, and a lot of coffee-induced ambition.
+
+---
+
+*This project is an independent academic exploration and not intended for clinical use or deployment without further validation.*
